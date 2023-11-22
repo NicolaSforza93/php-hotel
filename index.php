@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/40396ce4f1.js" crossorigin="anonymous"></script>
     <title>PHP Hotel</title>
 </head>
 
@@ -51,11 +52,10 @@
 
     ];
 
-    if (isset($_GET['searchPark']) && !empty($_GET['searchPark'])) {
+    if (isset($_GET['searchPark'])) {
         $newArray = [];
         foreach ($hotels as $hotel) {
-            $park = $hotel['parking'] ? 'Si' : 'No';
-            if ($park == $_GET['parking']) {
+            if ($hotel['parking'] == true) {
                 $newArray[] = $hotel;
             }
         }
@@ -94,11 +94,13 @@
     </ul> -->
     <div class="container p-5 text-center">
         <h1 class="text-primary fw-bold text-uppercase">PHP Hotel</h1>
-        <div class="mb-3 d-flex align-items-center gap-3">
-            <input class="form-check-input" type="checkbox" name="searchPark" id="searchPark">
-            <label class="form-check-label" for="searchPark">
-                <button type="submit" class="btn btn-primary btn-sm text-uppercase">Filtra</button>
-        </div>
+        <form action="" method="GET" class="mb-3 d-flex align-items-center gap-3">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="searchPark" id="searchPark">
+                <label class="form-check-label" for="searchPark">Con parcheggio</label>
+            </div>
+            <button type="submit" class="btn btn-light btn-sm"><i class="fa-solid fa-filter"></i></button>
+        </form>
         <table class="table table-bordered border-dark-subtle table-hover text-center">
             <thead class="table-primary">
                 <tr>
