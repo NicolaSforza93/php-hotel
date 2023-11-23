@@ -96,7 +96,7 @@
         <h1 class="text-primary fw-bold text-uppercase">PHP Hotel</h1>
         <form action="" method="GET" class="mb-3 d-flex align-items-center gap-3">
             <div class="form-check">
-                <input type="checkbox" class="form-check-input" name="searchPark" id="searchPark">
+                <input type="checkbox" class="form-check-input" <?php echo isset($_GET['searchPark']) ? 'checked' : ''; ?> name="searchPark" id="searchPark">
                 <label class="form-check-label" for="searchPark">Con parcheggio</label>
             </div>
             <button type="submit" class="btn btn-light btn-sm"><i class="fa-solid fa-filter"></i></button>
